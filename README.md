@@ -1,2 +1,2 @@
 # enote
-ENote: Spring corse student project 
+ENote: Spring course student project
