@@ -2,7 +2,7 @@
   CREATE DATABASE enote;
 
   CREATE USER 'enote_user'@'localhost' IDENTIFIED BY 'admin';
-  GRANT ALL PRIVILEGES ON enote TO 'enote_user'@'localhost';
+  GRANT ALL PRIVILEGES ON `enote` TO 'enote_user'@'localhost';
 */
 
 CREATE TABLE IF NOT EXISTS `user` (
