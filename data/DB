@@ -5,6 +5,11 @@
   GRANT ALL PRIVILEGES ON `enote` TO 'enote_user'@'localhost';
 */
 
+-- ---
+-- Table 'user'
+--
+-- ---
+
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
@@ -16,6 +21,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE (`email`, `password`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+-- ---
+-- Table 'note'
+--
+-- ---
 
 CREATE TABLE IF NOT EXISTS `note` (
   `id` int AUTO_INCREMENT,
@@ -31,6 +42,12 @@ CREATE TABLE IF NOT EXISTS `note` (
   FOREIGN KEY( `attachment_id` ) REFERENCES attachment( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+
+-- ---
+-- Table 'attachment'
+--
+-- ---
+
 CREATE TABLE IF NOT EXISTS `attachment` (
   `id` int AUTO_INCREMENT,
   `type` varchar(255) NOT NULL,
@@ -39,6 +56,10 @@ CREATE TABLE IF NOT EXISTS `attachment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
+-- ---
+-- Table 'note_label'
+--
+-- ---
 
 CREATE TABLE IF NOT EXISTS `note_label` (
   `id` int AUTO_INCREMENT,
