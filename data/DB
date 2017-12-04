@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
-  `registration_date` date NOT NULL DEFAULT NOW(),
+  `registration_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`id`),
   UNIQUE (`email`, `password`)
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `note` (
   `notebook_id` int NOT NULL,
   `attachment_id` int,
   `text` varchar(255) NOT NULL,
-  `date` date NOT NULL DEFAULT NOW(),
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`id`),
   FOREIGN KEY( `user_id` ) REFERENCES user( `id` ),
