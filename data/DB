@@ -1,7 +1,36 @@
 /*
-  create database enote;
+  CREATE DATABASE enote;
 
-  create user 'enote_user'@'localhost' identified by 'admin';
-  grant all PRIVILEGES  on enote to 'enote_user'@'localhost';
+  CREATE USER 'enote_user'@'localhost' IDENTIFIED BY 'admin';
+  GRANT ALL PRIVILEGES ON enote TO 'enote_user'@'localhost';
 */
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
+  `registration_date` date NOT NULL,
+
+  PRIMARY KEY (`id`),
+  UNIQUE (`email`, `password`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE IF NOT EXISTS `note` (
+  `id` int AUTO_INCREMENT,
+  `text` varchar(255) NOT NULL,
+  `attachment` int,
+
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE IF NOT EXISTS `attachment` (
+  `id` int AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
 
