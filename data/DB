@@ -1,0 +1,7 @@
+/*
+  create database enote;
+
+  create user 'enote_user'@'localhost' identified by 'admin';
+  grant all PRIVILEGES  on enote to 'enote_user'@'localhost';
+*/
+
