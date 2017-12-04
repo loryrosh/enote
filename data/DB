@@ -19,16 +19,16 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 CREATE TABLE IF NOT EXISTS `note` (
   `id` int AUTO_INCREMENT,
-  `user` int NOT NULL,
-  `notebook` int NOT NULL,
+  `user_id` int NOT NULL,
+  `notebook_id` int NOT NULL,
+  `attachment_id` int,
   `text` varchar(255) NOT NULL,
   `date` date NOT NULL DEFAULT NOW(),
-  `attachment` int,
 
   PRIMARY KEY (`id`),
-  FOREIGN KEY( `user` ) REFERENCES user( `id` ),
-  FOREIGN KEY( `notebook` ) REFERENCES notebook( `id` ),
-  FOREIGN KEY( `attachment` ) REFERENCES attachment( `id` )
+  FOREIGN KEY( `user_id` ) REFERENCES user( `id` ),
+  FOREIGN KEY( `notebook_id` ) REFERENCES notebook( `id` ),
+  FOREIGN KEY( `attachment_id` ) REFERENCES attachment( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 CREATE TABLE IF NOT EXISTS `attachment` (
@@ -42,11 +42,11 @@ CREATE TABLE IF NOT EXISTS `attachment` (
 
 CREATE TABLE IF NOT EXISTS `note_label` (
   `id` int AUTO_INCREMENT,
-  `note` int NOT NULL,
-  `label` int,
+  `note_id` int NOT NULL,
+  `label_id` int,
 
   PRIMARY KEY (`id`),
-  FOREIGN KEY( `note` ) REFERENCES note( `id` ),
-  FOREIGN KEY( `label` ) REFERENCES label( `id` )
+  FOREIGN KEY( `note_id` ) REFERENCES note( `id` ),
+  FOREIGN KEY( `label_id` ) REFERENCES label( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
