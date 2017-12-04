@@ -47,13 +47,3 @@ CREATE TABLE IF NOT EXISTS `note_label` (
   FOREIGN KEY( `label` ) REFERENCES label( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `note_notebook` (
-  `id` int AUTO_INCREMENT,
-  `note` int NOT NULL,
-  `notebook` int NOT NULL,
-
-  PRIMARY KEY (`id`),
-  FOREIGN KEY( `note` ) REFERENCES note( `id` ),
-  FOREIGN KEY( `notebook` ) REFERENCES notebook( `id` )
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
