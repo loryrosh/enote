@@ -111,4 +111,3 @@ CREATE TABLE IF NOT EXISTS `note_label` (
   FOREIGN KEY( `note_id` ) REFERENCES note( `id` ),
   FOREIGN KEY( `label_id` ) REFERENCES label( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
