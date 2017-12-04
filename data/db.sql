@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS `label`;
 		
 CREATE TABLE `label` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `color` varchar(6) NOT NULL,
+  `color` INTEGER NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
