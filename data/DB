@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS `note` (
   `attachment` int,
 
   PRIMARY KEY (`id`),
-  FOREIGN KEY( `user` ) REFERENCES user( `id` )
+  FOREIGN KEY( `user` ) REFERENCES user( `id` ),
+  FOREIGN KEY( `attachment` ) REFERENCES attachment( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 CREATE TABLE IF NOT EXISTS `attachment` (
