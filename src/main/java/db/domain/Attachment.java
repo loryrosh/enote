@@ -1,10 +1,23 @@
 package db.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import db.domain.util.BaseEntity;
+
+import org.slf4j.*;
+import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "attachment")
 public class Attachment extends BaseEntity {
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type")
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

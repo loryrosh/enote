@@ -1,4 +1,4 @@
-package db.domain;
+package db.domain.util;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
