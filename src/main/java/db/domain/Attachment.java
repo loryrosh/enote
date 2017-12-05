@@ -2,7 +2,6 @@ package db.domain;
 
 import db.domain.util.BaseEntity;
 
-import org.slf4j.*;
 import javax.persistence.*;
 
 @Entity
