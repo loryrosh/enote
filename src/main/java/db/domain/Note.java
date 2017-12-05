@@ -33,6 +33,13 @@ public class Note extends BaseEntity {
     )
     private List<Attachment> attachments = new ArrayList<>();
 
+    @ManyToMany
+    @JoinTable(name = "note_label",
+            joinColumns = @JoinColumn(name = "note_id"),
+            inverseJoinColumns = @JoinColumn(name = "label_id")
+    )
+    private List<Label> labels = new ArrayList<>();
+
     public User getUser() {
         return user;
     }
@@ -71,5 +78,13 @@ public class Note extends BaseEntity {
 
     public void setAttachments(List<Attachment> attachments) {
         this.attachments = attachments;
+    }
+
+    public List<Label> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<Label> labels) {
+        this.labels = labels;
     }
 }
