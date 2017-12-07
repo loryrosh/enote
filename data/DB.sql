@@ -66,13 +66,11 @@ DROP TABLE IF EXISTS `note`;
 
 CREATE TABLE IF NOT EXISTS `note` (
   `id` int AUTO_INCREMENT,
-  `user_id` int NOT NULL,
   `notebook_id` int NOT NULL,
   `text` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`id`),
-  FOREIGN KEY( `user_id` ) REFERENCES user( `id` ),
   FOREIGN KEY( `notebook_id` ) REFERENCES notebook( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
