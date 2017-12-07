@@ -1,4 +1,4 @@
-package db.domain.util;
+package org.enote.domain.util;
 
 import lombok.*;
 
@@ -10,7 +10,6 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @Setter
 @RequiredArgsConstructor
-@NoArgsConstructor
 
 @MappedSuperclass
 public abstract class BaseEntity {

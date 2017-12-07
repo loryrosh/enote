@@ -1,4 +1,4 @@
-package services;
+package org.enote.services;
 
 import org.springframework.util.DigestUtils;
 

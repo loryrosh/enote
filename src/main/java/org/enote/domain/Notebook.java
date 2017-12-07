@@ -1,4 +1,4 @@
-package db.domain;
+package org.enote.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

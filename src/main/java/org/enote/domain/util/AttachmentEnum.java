@@ -1,4 +1,4 @@
-package db.domain.util;
+package org.enote.domain.util;
 
 public enum AttachmentEnum {
     WEB_PAGE(1),

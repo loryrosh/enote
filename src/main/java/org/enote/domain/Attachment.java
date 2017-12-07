@@ -1,11 +1,9 @@
-package db.domain;
+package org.enote.domain;
 
-import db.domain.util.BaseEntity;
-import lombok.Data;
+import org.enote.domain.util.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
 

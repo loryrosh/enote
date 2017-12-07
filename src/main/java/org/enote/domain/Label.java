@@ -1,6 +1,6 @@
-package db.domain;
+package org.enote.domain;
 
-import db.domain.util.BaseEntity;
+import org.enote.domain.util.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
