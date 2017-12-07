@@ -27,5 +27,5 @@ public class Notebook {
     private Date date;
 
     @OneToMany
-    private Set<Note> pets = new HashSet<>();
+    private Set<Note> notes = new HashSet<>();
 }
