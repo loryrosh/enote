@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "notebook")
+@Table(name = "note")
 public class Note extends BaseEntity {
 
     @ManyToOne
