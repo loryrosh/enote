@@ -11,7 +11,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Profile("production")
 @Configuration
 @PropertySource({"classpath:db.properties"})
 public class DataSourceConfig implements DBConfig {
@@ -20,10 +19,10 @@ public class DataSourceConfig implements DBConfig {
     private String driverClassName;
     @Value("${url}")
     private String url;
-    @Value("${username}")
-    private String username;
-    @Value("${password}")
-    private String password;
+    @Value("${db_user}")
+    private String db_user;
+    @Value("${db_password}")
+    private String db_password;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
@@ -34,19 +33,22 @@ public class DataSourceConfig implements DBConfig {
     public Properties hibernateProperties() {
         Properties hibernateProp = new Properties();
 
-        hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+        hibernateProp.put("hibernate.hbm2ddl.auto", "update");
         hibernateProp.put("hibernate.show_sql", true);
+        hibernateProp.put("hibernate.format_sql", true);
 
         return hibernateProp;
     }
 
     @Override
+    @Bean
     public DataSource dataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName(driverClassName);
         ds.setUrl(url);
-        ds.setUsername(username);
-        ds.setPassword(password);
+        ds.setUsername(db_user);
+        ds.setPassword(db_password);
         return ds;
     }
 }
