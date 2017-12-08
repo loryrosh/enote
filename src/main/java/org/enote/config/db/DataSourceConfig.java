@@ -3,10 +3,12 @@ package org.enote.config.db;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -17,12 +19,21 @@ public class DataSourceConfig implements DBConfig {
 
     @Value("${driverClassName}")
     private String driverClassName;
+
     @Value("${url}")
     private String url;
+
     @Value("${db_user}")
     private String db_user;
+
     @Value("${db_password}")
     private String db_password;
+
+    @Value("classpath:sql/db.sql")
+    private Resource dbSQLSchema;
+
+    @Value("classpath:sql/test_data_db.sql")
+    private Resource dbSQLTestData;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
@@ -49,6 +60,13 @@ public class DataSourceConfig implements DBConfig {
         ds.setUrl(url);
         ds.setUsername(db_user);
         ds.setPassword(db_password);
+
+        // process DB schema & initial test DB data
+        final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+        populator.addScript(dbSQLSchema);
+        populator.addScript(dbSQLTestData);
+        DatabasePopulatorUtils.execute(populator, ds);
+
         return ds;
     }
 }

@@ -20,7 +20,7 @@ import java.util.List;
 public class Note extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "notebook_id" )
+    @JoinColumn(name = "notebook_id")
     private Notebook notebook;
 
     @Basic

@@ -20,7 +20,7 @@ import java.util.Set;
 public class Notebook extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "user_id" )
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "date")
