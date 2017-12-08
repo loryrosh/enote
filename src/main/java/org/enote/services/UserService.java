@@ -2,9 +2,7 @@ package org.enote.services;
 
 import org.springframework.util.DigestUtils;
 
-public class UserService {
+public interface UserService {
 
-    public String getEncodedPassword(String password) {
-        return DigestUtils.	md5DigestAsHex(password.getBytes());
-    }
+    String getEncodedPassword(String password);
 }
