@@ -1,0 +1,39 @@
+package org.enote.config;
+
+import org.enote.config.db.DataSourceConfig;
+import org.enote.config.db.PersistenceConfig;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.orm.jpa.persistenceunit.PersistenceUnitManager;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.persistence.EntityManagerFactory;
+
+import static org.junit.Assert.*;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {PersistenceConfig.class, DataSourceConfig.class})
+public class PersistenceConfigTest {
+    @Autowired
+    PersistenceConfig persistenceConfig;
+
+    @Autowired
+    EntityManagerFactory entityManagerFactory;
+
+    @Autowired
+    PersistenceUnitManager persistenceUnitManager;
+
+    @Autowired
+    PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor;
+
+    @Test
+    public void testBeansCreated() {
+        assertNotNull(persistenceConfig);
+        assertNotNull(entityManagerFactory);
+        assertNotNull(persistenceUnitManager);
+        assertNotNull(persistenceExceptionTranslationPostProcessor);
+    }
+}
