@@ -17,13 +17,10 @@ import java.util.Properties;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {AppConfig.class, DataSourceConfig.class})
-public class AppConfigTest {
+@ContextConfiguration(classes = {DataSourceConfig.class})
+public class DataSourceConfigTest {
 
-    private Logger logger = LoggerFactory.getLogger(AppConfigTest.class);
-
-    @Autowired
-    AppConfig appConfig;
+    private Logger logger = LoggerFactory.getLogger(DataSourceConfigTest.class);
 
     @Autowired
     DataSourceConfig dataSourceConfig;
@@ -39,7 +36,6 @@ public class AppConfigTest {
 
     @Test
     public void testBoot() {
-        assertNotNull(appConfig);
         assertNotNull(dataSourceConfig);
         assertNotNull(propertySourcesPlaceholderConfigurer);
         assertNotNull(hibernateProperties);
