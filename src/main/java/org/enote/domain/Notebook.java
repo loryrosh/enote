@@ -3,6 +3,7 @@ package org.enote.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.enote.domain.util.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "notebook")
-public class Notebook {
+public class Notebook extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id" )

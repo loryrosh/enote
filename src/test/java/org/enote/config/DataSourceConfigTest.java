@@ -35,7 +35,7 @@ public class DataSourceConfigTest {
     DataSource dataSource;
 
     @Test
-    public void testBoot() {
+    public void testBeansCreated() {
         assertNotNull(dataSourceConfig);
         assertNotNull(propertySourcesPlaceholderConfigurer);
         assertNotNull(hibernateProperties);
