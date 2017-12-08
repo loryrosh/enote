@@ -26,7 +26,4 @@ public class Notebook extends BaseEntity {
     @Column(name = "date")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date;
-
-    @OneToMany
-    private Set<Note> notes = new HashSet<>();
 }

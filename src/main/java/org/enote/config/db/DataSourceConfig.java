@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@PropertySource({"classpath:db.properties"})
+@PropertySource({"classpath:prod/db.properties"})
 public class DataSourceConfig implements DBConfig {
 
     @Value("${driverClassName}")
@@ -29,11 +29,14 @@ public class DataSourceConfig implements DBConfig {
     @Value("${db_password}")
     private String db_password;
 
-    @Value("classpath:sql/db.sql")
+    @Value("${dbSQLSchema}")
     private Resource dbSQLSchema;
 
-    @Value("classpath:sql/test_data_db.sql")
+    @Value("${dbSQLTestData}")
     private Resource dbSQLTestData;
+
+    @Value("${hibernateDialect}")
+    private String hibernateDialect;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
@@ -44,7 +47,7 @@ public class DataSourceConfig implements DBConfig {
     public Properties hibernateProperties() {
         Properties hibernateProp = new Properties();
 
-        hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+        hibernateProp.put("hibernate.dialect", hibernateDialect);
         hibernateProp.put("hibernate.hbm2ddl.auto", "update");
         hibernateProp.put("hibernate.show_sql", true);
         hibernateProp.put("hibernate.format_sql", true);
