@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {DataSourceConfig.class})
-public class DataSourceConfigTest {
+public class DataSourceConfigTest extends TestPreConfig {
 
     private Logger logger = LoggerFactory.getLogger(DataSourceConfigTest.class);
 

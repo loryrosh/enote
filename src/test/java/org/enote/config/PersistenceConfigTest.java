@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {PersistenceConfig.class, DataSourceConfig.class})
-public class PersistenceConfigTest {
+public class PersistenceConfigTest extends TestPreConfig {
     @Autowired
     PersistenceConfig persistenceConfig;
 

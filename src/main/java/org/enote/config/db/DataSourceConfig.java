@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@PropertySource({"classpath:prod/db.properties"})
+@PropertySource({"classpath:db_${spring.profiles.active}.properties"})
 public class DataSourceConfig implements DBConfig {
 
     @Value("${driverClassName}")
