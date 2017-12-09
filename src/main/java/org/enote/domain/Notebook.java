@@ -7,7 +7,9 @@ import org.enote.domain.util.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,4 +26,7 @@ public class Notebook extends BaseEntity {
     @Column(name = "date")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date;
+
+    @OneToMany(mappedBy = "notebook", cascade = CascadeType.ALL)
+    private List<Note> notes = new ArrayList<>();
 }

@@ -47,7 +47,7 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(){
+    public PlatformTransactionManager transactionManager() {
         return new JpaTransactionManager(entityManagerFactory());
     }
 }
