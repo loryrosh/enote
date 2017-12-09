@@ -12,6 +12,7 @@ CREATE TABLE user (
   name varchar(255) NOT NULL,
   surname varchar(255) NOT NULL,
   registration_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  is_active boolean DEFAULT TRUE,
 
   PRIMARY KEY (id),
   UNIQUE (email)

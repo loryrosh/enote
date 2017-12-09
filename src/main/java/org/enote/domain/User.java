@@ -39,4 +39,8 @@ public class User extends BaseEntity {
     @Column(name = "registration_date")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date regDate;
+
+    @Basic
+    @Column(name = "is_active")
+    private boolean isActive;
 }
