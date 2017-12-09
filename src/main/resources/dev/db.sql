@@ -14,7 +14,7 @@ CREATE TABLE user (
   registration_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (id),
-  UNIQUE (email, password)
+  UNIQUE (email)
 );
 
 
@@ -46,7 +46,8 @@ CREATE TABLE attachment (
   id int AUTO_INCREMENT,
   type varchar(255) NOT NULL,
 
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE (type)
 );
 
 

@@ -4,7 +4,7 @@ import org.enote.config.DataSourceConfigTest;
 import org.enote.config.TestPreConfig;
 import org.enote.config.db.DataSourceConfig;
 import org.enote.config.db.PersistenceConfig;
-import org.enote.domain.User;
+import org.enote.domain.Attachment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -17,22 +17,22 @@ import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {PersistenceConfig.class, DataSourceConfig.class})
-public class UserRepoTest extends TestPreConfig {
+public class AttachmentRepoTest extends TestPreConfig {
 
     private Logger logger = LoggerFactory.getLogger(DataSourceConfigTest.class);
 
     @Autowired
-    private UserRepo userRepo;
+    private AttachmentRepo attachmentRepo;
 
     @Test
     public void checkTotalAmount() {
-        long count = userRepo.count();
-        logger.info("Total amount of users: " + count);
+        long count = attachmentRepo.count();
+        logger.info("Total amount of attachment types: " + count);
     }
 
     @Test
     public void showAll() {
-        List<User> users = userRepo.findAll();
-        users.stream().forEach(user -> logger.info(user.getName() + " " + user.getEmail()));
+        List<Attachment> attachments = attachmentRepo.findAll();
+        attachments.stream().forEach(attachment -> logger.info(attachment.getAttr()));
     }
 }

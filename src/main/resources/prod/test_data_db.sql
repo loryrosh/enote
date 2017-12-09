@@ -1,11 +1,11 @@
 use enote;
 
 LOCK TABLES `attachment` WRITE;
-INSERT IGNORE INTO `attachment` VALUES
-  (1,'web-page'),
-  (2,'photo'),
-  (3,'audio'),
-  (4,'video');
+INSERT IGNORE INTO `attachment` (`type`) VALUES
+  ('audio'),
+  ('page'),
+  ('photo'),
+  ('video');
 UNLOCK TABLES;
 
 LOCK TABLES `user` WRITE;

@@ -39,6 +39,9 @@ public class DataSourceConfig {
     @Value("${hibernateDialect}")
     private String hibernateDialect;
 
+    @Value("${showSQL}")
+    private String showSQL;
+
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
@@ -50,7 +53,7 @@ public class DataSourceConfig {
 
         hibernateProp.put("hibernate.dialect", hibernateDialect);
         hibernateProp.put("hibernate.hbm2ddl.auto", "update");
-        hibernateProp.put("hibernate.show_sql", true);
+        hibernateProp.put("hibernate.show_sql", showSQL);
         hibernateProp.put("hibernate.format_sql", true);
 
         return hibernateProp;
