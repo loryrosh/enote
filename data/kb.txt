@@ -1,0 +1,4 @@
+set active Spring profile via VM options:
+
+    -Dspring.profiles.active=dev
+

@@ -21,7 +21,7 @@ public class PersistenceConfig {
     DataSourceConfig dataSourceConfig;
 
     @Bean
-    public EntityManagerFactory entityManagerFactory(){
+    public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setPersistenceUnitManager(persistenceUnitManager());
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
@@ -32,7 +32,7 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public PersistenceUnitManager persistenceUnitManager(){
+    public PersistenceUnitManager persistenceUnitManager() {
         MergingPersistenceUnitManager persistenceUnitManager = new MergingPersistenceUnitManager();
         persistenceUnitManager.setPackagesToScan("org.enote.domain");
         persistenceUnitManager.setDefaultDataSource(dataSourceConfig.dataSource());
@@ -40,7 +40,7 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 }

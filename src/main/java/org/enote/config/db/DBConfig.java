@@ -5,5 +5,6 @@ import java.util.Properties;
 
 public interface DBConfig {
     DataSource dataSource();
+
     Properties hibernateProperties();
 }
