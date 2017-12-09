@@ -15,7 +15,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource({"classpath:db_${spring.profiles.active}.properties"})
-public class DataSourceConfig implements DBConfig {
+public class DataSourceConfig {
 
     @Value("${driverClassName}")
     private String driverClassName;
@@ -28,6 +28,7 @@ public class DataSourceConfig implements DBConfig {
 
     @Value("${db_password}")
     private String db_password;
+
 
     @Value("${dbSQLSchema}")
     private Resource dbSQLSchema;
@@ -55,7 +56,6 @@ public class DataSourceConfig implements DBConfig {
         return hibernateProp;
     }
 
-    @Override
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();

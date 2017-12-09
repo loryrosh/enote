@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "attachment")
 public class Attachment extends BaseEntity {
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "type")
     private AttachmentEnum type;
 }
