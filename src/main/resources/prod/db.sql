@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `registration_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`id`),
-  UNIQUE (`email`, `password`)
+  UNIQUE (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS `attachment` (
   `id` int AUTO_INCREMENT,
   `type` varchar(255) NOT NULL,
 
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 

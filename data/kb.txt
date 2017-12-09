@@ -2,3 +2,6 @@ set active Spring profile via VM options:
 
     -Dspring.profiles.active=dev
 
+ENUM:
+    DB field for such type should be called 'name'
+

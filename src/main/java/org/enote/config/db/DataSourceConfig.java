@@ -15,7 +15,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource({"classpath:db_${spring.profiles.active}.properties"})
-public class DataSourceConfig implements DBConfig {
+public class DataSourceConfig {
 
     @Value("${driverClassName}")
     private String driverClassName;
@@ -29,6 +29,7 @@ public class DataSourceConfig implements DBConfig {
     @Value("${db_password}")
     private String db_password;
 
+
     @Value("${dbSQLSchema}")
     private Resource dbSQLSchema;
 
@@ -37,6 +38,9 @@ public class DataSourceConfig implements DBConfig {
 
     @Value("${hibernateDialect}")
     private String hibernateDialect;
+
+    @Value("${showSQL}")
+    private String showSQL;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
@@ -49,13 +53,12 @@ public class DataSourceConfig implements DBConfig {
 
         hibernateProp.put("hibernate.dialect", hibernateDialect);
         hibernateProp.put("hibernate.hbm2ddl.auto", "update");
-        hibernateProp.put("hibernate.show_sql", true);
+        hibernateProp.put("hibernate.show_sql", showSQL);
         hibernateProp.put("hibernate.format_sql", true);
 
         return hibernateProp;
     }
 
-    @Override
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();

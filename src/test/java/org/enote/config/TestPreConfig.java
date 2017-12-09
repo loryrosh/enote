@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 
 public class TestPreConfig {
 
+    // private static final String ACTIVE_PROFILE = "dev";
     private static final String ACTIVE_PROFILE = "prod";
 
     @BeforeClass
