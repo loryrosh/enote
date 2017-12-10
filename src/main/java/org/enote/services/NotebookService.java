@@ -8,6 +8,15 @@ import java.util.List;
 public interface NotebookService {
 
     /**
+     * Saves new note
+     *
+     * @param notebook current notebook
+     * @param note     new note
+     * @return added note
+     */
+    Note saveNote(Notebook notebook, Note note);
+
+    /**
      * Gets all user's notebooks
      *
      * @return list of notebooks
@@ -19,6 +28,7 @@ public interface NotebookService {
      *
      * @return active notebook
      */
+
     Notebook getActiveNotebook() throws Exception;
 
     /**
@@ -26,20 +36,11 @@ public interface NotebookService {
      *
      * @return default notebook
      */
+
     Notebook getDefaultNotebook() throws Exception;
 
     /**
      * Deletes default notebook
-     *
-     *
      */
     void deleteDefaultNotebook();
-    /**
-     * Saves new note
-     *
-     * @param notebook current notebook
-     * @param note     new note
-     * @return added note
-     */
-    Note saveNote(Notebook notebook, Note note);
 }
