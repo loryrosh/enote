@@ -79,6 +79,12 @@ public class NotebookServiceImpl implements NotebookService {
         }
     }
 
+    /**
+     * Creates default notebook for the active user
+     *
+     * @return created notebook
+     * @throws Exception
+     */
     private Notebook getDefaultNotebook() throws Exception {
         User user = userService.getActiveUser();
         return notebookRepo.save(new Notebook(user, "Default", new Date()));
