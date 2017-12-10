@@ -1,8 +1,7 @@
-package org.enote.config;
+package org.enote;
 
-import org.enote.AppConfig;
-import org.enote.config.db.DataSourceConfig;
-import org.enote.config.db.PersistenceConfig;
+import org.enote.config.DataSourceConfig;
+import org.enote.config.PersistenceConfig;
 import org.junit.BeforeClass;
 import org.springframework.test.context.ContextConfiguration;
 

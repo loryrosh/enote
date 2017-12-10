@@ -1,9 +1,8 @@
 package org.enote.repos;
 
-import org.enote.config.DataSourceConfigTest;
-import org.enote.config.TestPreConfig;
-import org.enote.config.db.DataSourceConfig;
-import org.enote.config.db.PersistenceConfig;
+import org.enote.TestPreConfig;
+import org.enote.config.DataSourceConfig;
+import org.enote.config.PersistenceConfig;
 import org.enote.domain.Attachment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +18,7 @@ import java.util.List;
 @ContextConfiguration(classes = {PersistenceConfig.class, DataSourceConfig.class})
 public class AttachmentRepoTest extends TestPreConfig {
 
-    private Logger logger = LoggerFactory.getLogger(DataSourceConfigTest.class);
+    private Logger logger = LoggerFactory.getLogger(AttachmentRepoTest.class);
 
     @Autowired
     private AttachmentRepo attachmentRepo;

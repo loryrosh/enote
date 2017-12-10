@@ -1,6 +1,6 @@
 package org.enote.config;
 
-import org.enote.config.db.DataSourceConfig;
+import org.enote.TestPreConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

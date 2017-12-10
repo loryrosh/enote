@@ -1,6 +1,6 @@
 package org.enote.services;
 
-import org.enote.config.TestPreConfig;
+import org.enote.TestPreConfig;
 import org.enote.domain.User;
 import org.enote.services.impl.UserServiceImpl;
 import org.junit.Test;

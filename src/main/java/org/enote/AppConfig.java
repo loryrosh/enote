@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@ComponentScan(basePackages = {"org.enote.config.db", "org.enote.services.impl"})
+@ComponentScan(basePackages = {"org.enote.config", "org.enote.services.impl"})
 public class AppConfig {
 
     public static final String PROFILE_DEV = "dev";

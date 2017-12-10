@@ -1,7 +1,7 @@
 package org.enote.repos;
 
 import org.enote.config.DataSourceConfigTest;
-import org.enote.config.TestPreConfig;
+import org.enote.TestPreConfig;
 import org.enote.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
