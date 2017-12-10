@@ -1,17 +1,12 @@
 package org.enote.repos;
 
 import org.enote.TestPreConfig;
-import org.enote.config.DataSourceConfig;
-import org.enote.config.PersistenceConfig;
-import org.enote.config.DataSourceConfigTest;
-import org.enote.config.TestPreConfig;
 import org.enote.domain.Attachment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
