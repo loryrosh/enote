@@ -28,6 +28,9 @@ public class UserServiceTest extends TestPreConfig {
     @Autowired
     private UserServiceImpl userService;
 
+    @Autowired
+    private UserConfig userConfig;
+
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -54,5 +57,11 @@ public class UserServiceTest extends TestPreConfig {
     @Test(expected = Exception.class)
     public void activeUserExceptionTest() throws Exception{
         userService.getActiveUser();
+    }
+
+    @Test
+    public void setActiveUserTest() {
+        User user = userService.setActiveUser(userConfig.getActiveUserEmail());
+        assertEquals(user.getPassword(), userConfig.getActivePassword());
     }
 }
