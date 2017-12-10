@@ -1,6 +1,6 @@
 package org.enote.config;
 
-import org.enote.config.db.DataSourceConfig;
+import org.enote.TestPreConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -34,7 +34,7 @@ public class DataSourceConfigTest extends TestPreConfig {
     DataSource dataSource;
 
     @Test
-    public void testBeansCreated() {
+    public void beansCreatedTest() {
         assertNotNull(dataSourceConfig);
         assertNotNull(propertySourcesPlaceholderConfigurer);
         assertNotNull(hibernateProperties);

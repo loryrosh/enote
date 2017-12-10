@@ -1,12 +1,18 @@
 package org.enote;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
-public class Utils {
+@Configuration
+@ComponentScan(basePackages = {"org.enote.config", "org.enote.services.impl"})
+public class AppConfig {
 
     public static final String PROFILE_DEV = "dev";
     public static final String PROFILE_PROD = "prod";
+
+    public static final String CURRENT_USER_PROFILE = "John";
 
     /**
      * Gets active Spring profile

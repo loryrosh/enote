@@ -1,12 +1,13 @@
 package org.enote.services.impl;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.enote.Utils;
+import org.enote.AppConfig;
 import org.enote.domain.User;
 import org.enote.repos.UserRepo;
 import org.enote.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.nio.charset.StandardCharsets;
@@ -14,6 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private static final String PASSWORD_SHA256 = "SHA-256";
@@ -53,7 +55,7 @@ public class UserServiceImpl implements UserService {
      * @throws Exception
      */
     private String getEncodedPassword(String password) throws Exception {
-        if (Utils.getProfile(environment).equals(Utils.PROFILE_DEV)) {
+        if (AppConfig.getProfile(environment).equals(AppConfig.PROFILE_DEV)) {
             try {
                 MessageDigest digest = MessageDigest.getInstance(PASSWORD_SHA256);
                 return ArrayUtils.toString(digest.digest(password.getBytes(StandardCharsets.UTF_8)));
