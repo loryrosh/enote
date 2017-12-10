@@ -5,6 +5,22 @@ import org.enote.domain.User;
 public interface UserService {
 
     /**
+     * Sets active user from user profile
+     *
+     * @param email user email
+     * @return active user
+     */
+    User setActiveUser(String email);
+
+    /**
+     * Gets active user from user profile
+     *
+     * @throws Exception
+     * @return active user
+     */
+    User getActiveUser() throws Exception;
+
+    /**
      * Saves user entity with encoded password
      *
      * @param user user entity

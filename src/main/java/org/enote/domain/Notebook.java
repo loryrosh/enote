@@ -29,4 +29,9 @@ public class Notebook extends BaseEntity {
 
     @OneToMany(mappedBy = "notebook", cascade = CascadeType.ALL)
     private List<Note> notes = new ArrayList<>();
+
+    public Notebook(User user, Date date) {
+        this.user = user;
+        this.date = date;
+    }
 }

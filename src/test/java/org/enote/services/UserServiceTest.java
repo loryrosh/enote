@@ -1,11 +1,13 @@
 package org.enote.services;
 
 import org.enote.TestPreConfig;
-import org.enote.UserConfig;
+import org.enote.config.UserConfig;
 import org.enote.domain.User;
 import org.enote.repos.UserRepo;
 import org.enote.services.impl.UserServiceImpl;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,8 +31,8 @@ public class UserServiceTest extends TestPreConfig {
     @Autowired
     private UserConfig userConfig;
 
-    @Autowired
-    private UserRepo userRepo;
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void userLifeCycleTest() {
@@ -52,9 +54,14 @@ public class UserServiceTest extends TestPreConfig {
         }
     }
 
+    @Test(expected = Exception.class)
+    public void activeUserExceptionTest() throws Exception{
+        userService.getActiveUser();
+    }
+
     @Test
-    public void activeUserTest() {
-        User user = userRepo.findByEmail(userConfig.getActiveUserEmail());
+    public void setActiveUserTest() {
+        User user = userService.setActiveUser(userConfig.getActiveUserEmail());
         assertEquals(user.getPassword(), userConfig.getActivePassword());
     }
 }
