@@ -15,8 +15,8 @@ public interface UserService {
     /**
      * Gets active user from user profile
      *
-     * @throws Exception
      * @return active user
+     * @throws Exception
      */
     User getActiveUser() throws Exception;
 
