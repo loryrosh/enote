@@ -1,21 +1,19 @@
 package org.enote.repos;
 
 import org.enote.TestPreConfig;
-import org.enote.config.DataSourceConfig;
-import org.enote.config.PersistenceConfig;
 import org.enote.domain.Attachment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {PersistenceConfig.class, DataSourceConfig.class})
 public class AttachmentRepoTest extends TestPreConfig {
 
     private Logger logger = LoggerFactory.getLogger(AttachmentRepoTest.class);
@@ -27,6 +25,8 @@ public class AttachmentRepoTest extends TestPreConfig {
     public void checkTotalAmountTest() {
         long count = attachmentRepo.count();
         logger.info("Total amount of attachment types: " + count);
+
+        assertEquals(4, count);
     }
 
     @Test

@@ -34,4 +34,12 @@ public interface NotebookService {
      *
      */
     void deleteDefaultNotebook();
+    /**
+     * Saves new note
+     *
+     * @param notebook current notebook
+     * @param note     new note
+     * @return added note
+     */
+    Note saveNote(Notebook notebook, Note note);
 }
