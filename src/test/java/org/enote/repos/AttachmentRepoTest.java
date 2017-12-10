@@ -24,13 +24,13 @@ public class AttachmentRepoTest extends TestPreConfig {
     private AttachmentRepo attachmentRepo;
 
     @Test
-    public void checkTotalAmount() {
+    public void checkTotalAmountTest() {
         long count = attachmentRepo.count();
         logger.info("Total amount of attachment types: " + count);
     }
 
     @Test
-    public void showAll() {
+    public void showAllTest() {
         List<Attachment> attachments = attachmentRepo.findAll();
         attachments.stream().forEach(attachment -> logger.info(attachment.getAttr()));
     }

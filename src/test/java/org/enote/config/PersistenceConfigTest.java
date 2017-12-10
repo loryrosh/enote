@@ -29,7 +29,7 @@ public class PersistenceConfigTest extends TestPreConfig {
     PersistenceExceptionTranslationPostProcessor persistenceExceptionTranslationPostProcessor;
 
     @Test
-    public void testBeansCreated() {
+    public void eansCreatedTest() {
         assertNotNull(persistenceConfig);
         assertNotNull(entityManagerFactory);
         assertNotNull(persistenceUnitManager);

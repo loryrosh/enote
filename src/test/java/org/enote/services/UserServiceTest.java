@@ -1,6 +1,7 @@
 package org.enote.services;
 
 import org.enote.TestPreConfig;
+import org.enote.UserConfig;
 import org.enote.domain.User;
 import org.enote.services.impl.UserServiceImpl;
 import org.junit.Test;
@@ -16,7 +17,7 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {UserServiceImpl.class})
+@ContextConfiguration(classes = {UserServiceImpl.class, UserConfig.class})
 public class UserServiceTest extends TestPreConfig {
 
     private Logger logger = LoggerFactory.getLogger(UserServiceTest.class);
@@ -24,8 +25,11 @@ public class UserServiceTest extends TestPreConfig {
     @Autowired
     private UserServiceImpl userService;
 
+    @Autowired
+    private UserConfig userConfig;
+
     @Test
-    public void testUserLifeCycle() {
+    public void userLifeCycleTest() {
         User user = new User("Will@mail.ru", "password", "Will", "Tomson", new Date(), true);
 
         try {
@@ -42,5 +46,10 @@ public class UserServiceTest extends TestPreConfig {
         } catch (Exception ex) {
             logger.warn("User already exists or there was an error during the saving process.");
         }
+    }
+
+    @Test
+    public void activeUserTest() {
+
     }
 }

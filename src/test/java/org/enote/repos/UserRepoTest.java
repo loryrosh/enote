@@ -24,19 +24,19 @@ public class UserRepoTest extends TestPreConfig {
     private UserRepo userRepo;
 
     @Test
-    public void checkTotalAmount() {
+    public void checkTotalAmountTest() {
         long count = userRepo.count();
         logger.info("Total amount of users: " + count);
     }
 
     @Test
-    public void showAll() {
+    public void showAllTest() {
         List<User> users = userRepo.findAll();
         users.stream().forEach(user -> logger.info(user.getName() + " " + user.getEmail()));
     }
 
     @Test
-    public void findUser() {
+    public void findUserTest() {
         Optional<User> foundUser = userRepo.findById(2);
         if (foundUser.isPresent()) {
             logger.info("Found user with id 2: " + foundUser.get().getEmail());

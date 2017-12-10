@@ -34,7 +34,7 @@ public class DataSourceConfigTest extends TestPreConfig {
     DataSource dataSource;
 
     @Test
-    public void testBeansCreated() {
+    public void beansCreatedTest() {
         assertNotNull(dataSourceConfig);
         assertNotNull(propertySourcesPlaceholderConfigurer);
         assertNotNull(hibernateProperties);

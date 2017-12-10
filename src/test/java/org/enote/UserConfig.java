@@ -1,4 +1,4 @@
-package org.enote.config;
+package org.enote;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
