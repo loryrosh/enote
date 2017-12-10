@@ -1,6 +1,6 @@
 package org.enote.config;
 
-import org.enote.Utils;
+import org.enote.AppConfig;
 import org.enote.config.db.DataSourceConfig;
 import org.enote.config.db.PersistenceConfig;
 import org.junit.BeforeClass;
@@ -11,6 +11,6 @@ public class TestPreConfig {
 
     @BeforeClass
     public static void setup() {
-        System.setProperty("spring.profiles.active", Utils.PROFILE_DEV);
+        System.setProperty("spring.profiles.active", AppConfig.PROFILE_DEV);
     }
 }

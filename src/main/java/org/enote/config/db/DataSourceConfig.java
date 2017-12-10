@@ -23,11 +23,11 @@ public class DataSourceConfig {
     @Value("${url}")
     private String url;
 
-    @Value("${db_user}")
-    private String db_user;
+    @Value("${dbUser}")
+    private String dbUser;
 
-    @Value("${db_password}")
-    private String db_password;
+    @Value("${dbPassword}")
+    private String dbPassword;
 
 
     @Value("${dbSQLSchema}")
@@ -64,8 +64,8 @@ public class DataSourceConfig {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName(driverClassName);
         ds.setUrl(url);
-        ds.setUsername(db_user);
-        ds.setPassword(db_password);
+        ds.setUsername(dbUser);
+        ds.setPassword(dbPassword);
 
         // process DB schema & initial test DB data
         final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
