@@ -44,4 +44,18 @@ public class Note extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "label_id")
     )
     private List<Label> labels = new ArrayList<>();
+
+    /**
+     * Sets new attachment
+     */
+    public void setAttachment(Attachment attachment) {
+        attachments.add(attachment);
+    }
+
+    /**
+     * Sets new label
+     */
+    public void setLabel(Label label) {
+        labels.add(label);
+    }
 }

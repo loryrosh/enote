@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Setter
@@ -33,5 +34,12 @@ public class Notebook extends BaseEntity {
     public Notebook(User user, Date date) {
         this.user = user;
         this.date = date;
+    }
+
+    /**
+     * Sets new note
+     */
+    public void setNote(Note note) {
+        notes.add(note);
     }
 }
