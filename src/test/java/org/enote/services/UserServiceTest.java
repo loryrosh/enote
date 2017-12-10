@@ -3,6 +3,7 @@ package org.enote.services;
 import org.enote.TestPreConfig;
 import org.enote.UserConfig;
 import org.enote.domain.User;
+import org.enote.repos.UserRepo;
 import org.enote.services.impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +29,9 @@ public class UserServiceTest extends TestPreConfig {
     @Autowired
     private UserConfig userConfig;
 
+    @Autowired
+    private UserRepo userRepo;
+
     @Test
     public void userLifeCycleTest() {
         User user = new User("Will@mail.ru", "password", "Will", "Tomson", new Date(), true);
@@ -50,6 +54,7 @@ public class UserServiceTest extends TestPreConfig {
 
     @Test
     public void activeUserTest() {
-
+        User user = userRepo.findByEmail(userConfig.getActiveUserEmail());
+        assertEquals(user.getPassword(), userConfig.getActivePassword());
     }
 }

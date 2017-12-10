@@ -7,10 +7,10 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@PropertySource({"classpath:user.properties"})
+@PropertySource({"classpath:user_${spring.profiles.active}.properties"})
 public class UserConfig {
-    @Value("${activeUser}")
-    private String activeUser;
+    @Value("${activeUserEmail}")
+    private String activeUserEmail;
 
     @Value("${activePassword}")
     private String activePassword;
@@ -20,8 +20,8 @@ public class UserConfig {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    public String getActiveUser() {
-        return activeUser;
+    public String getActiveUserEmail() {
+        return activeUserEmail;
     }
 
     public String getActivePassword() {
