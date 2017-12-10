@@ -2,6 +2,7 @@ package org.enote.services.impl;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.enote.AppConfig;
+import org.enote.config.UserConfig;
 import org.enote.domain.User;
 import org.enote.repos.UserRepo;
 import org.enote.services.UserService;
@@ -25,6 +26,29 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private Environment environment;
+
+    @Autowired
+    private UserConfig userConfig;
+
+    private User activeUser;
+
+    @Override
+    public User setActiveUser(String email) {
+        Optional<User> user = userRepo.findByEmail(userConfig.getActiveUserEmail());
+
+        if (user.isPresent()) {
+            activeUser = user.get();
+        }
+        return activeUser;
+    }
+
+    @Override
+    public User getActiveUser() throws Exception {
+        if (activeUser == null) {
+            throw new Exception("Active user was not set yet");
+        }
+        return activeUser;
+    }
 
     @Override
     public User saveUser(User user) throws Exception {
