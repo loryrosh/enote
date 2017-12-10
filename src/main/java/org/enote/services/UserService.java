@@ -16,9 +16,8 @@ public interface UserService {
      * Gets active user from user profile
      *
      * @return active user
-     * @throws Exception
      */
-    User getActiveUser() throws Exception;
+    User getActiveUser();
 
     /**
      * Saves user entity with encoded password

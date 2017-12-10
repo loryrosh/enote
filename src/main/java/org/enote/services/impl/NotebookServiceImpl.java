@@ -4,6 +4,7 @@ import org.enote.domain.Note;
 import org.enote.domain.Notebook;
 import org.enote.domain.User;
 import org.enote.repos.NotebookRepo;
+import org.enote.services.NoteService;
 import org.enote.services.NotebookService;
 import org.enote.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,29 @@ public class NotebookServiceImpl implements NotebookService {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private NoteService noteService;
+
     private Notebook activeNotebook;
-    private Notebook defaultNotebook;
     private List<Notebook> allNotebooks;
 
     @Override
-    public Note saveNote(Notebook notebook, Note note) {
-        notebook.setNote(note);
-        notebookRepo.save(notebook);
+    public Note addNote(Note note) throws Exception {
+        note.setNotebook(activeNotebook);
+        note = noteService.saveNote(note);
 
+        activeNotebook.addNote(note);
+        notebookRepo.save(activeNotebook);
+
+        return note;
+    }
+
+    @Override
+    public Note deleteNote(Note note) throws Exception {
+        if (activeNotebook.getNotes().contains(note)) {
+            activeNotebook.getNotes().remove(note);
+            noteService.deleteNote(note);
+        }
         return note;
     }
 
@@ -42,6 +57,11 @@ public class NotebookServiceImpl implements NotebookService {
     }
 
     @Override
+    public void setActiveNotebook(String title) throws Exception {
+        activeNotebook = notebookRepo.findByTitle(title);
+    }
+
+    @Override
     public Notebook getActiveNotebook() throws Exception {
         if (activeNotebook == null) {
             activeNotebook = getDefaultNotebook();
@@ -50,18 +70,17 @@ public class NotebookServiceImpl implements NotebookService {
     }
 
     @Override
-    public Notebook getDefaultNotebook() throws Exception {
-        if (defaultNotebook == null) {
-            User user = userService.getActiveUser();
-            defaultNotebook = notebookRepo.save(new Notebook(user, new Date()));
+    public void deleteActiveNotebook() {
+        if (activeNotebook != null) {
+            for (Note note : activeNotebook.getNotes()) {
+                noteService.deleteNote(note);
+            }
+            notebookRepo.delete(activeNotebook);
         }
-        return defaultNotebook;
     }
 
-    @Override
-    public void deleteDefaultNotebook() {
-        if (defaultNotebook != null) {
-            notebookRepo.delete(defaultNotebook);
-        }
+    private Notebook getDefaultNotebook() throws Exception {
+        User user = userService.getActiveUser();
+        return notebookRepo.save(new Notebook(user, "Default", new Date()));
     }
 }

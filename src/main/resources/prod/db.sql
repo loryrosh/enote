@@ -31,10 +31,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 CREATE TABLE IF NOT EXISTS `notebook` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
   `user_id` int NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`id`),
+  UNIQUE (`title`),
   FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -61,10 +63,12 @@ CREATE TABLE IF NOT EXISTS `attachment` (
 CREATE TABLE IF NOT EXISTS `note` (
   `id` int AUTO_INCREMENT,
   `notebook_id` int NOT NULL,
+  `title` varchar(255) NOT NULL,
   `text` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`id`),
+  UNIQUE (`title`),
   FOREIGN KEY( `notebook_id` ) REFERENCES notebook( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 

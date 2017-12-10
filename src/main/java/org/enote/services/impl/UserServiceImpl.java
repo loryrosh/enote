@@ -34,7 +34,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User setActiveUser(String email) {
-        Optional<User> user = userRepo.findByEmail(userConfig.getActiveUserEmail());
+        Optional<User> user;
+        if ("".equals(email)) {
+            user = userRepo.findByEmail(userConfig.getActiveUserEmail());
+        } else {
+            user = userRepo.findByEmail(email);
+        }
 
         if (user.isPresent()) {
             activeUser = user.get();
@@ -43,9 +48,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getActiveUser() throws Exception {
+    public User getActiveUser() {
         if (activeUser == null) {
-            throw new Exception("Active user was not set yet");
+            setActiveUser("");
         }
         return activeUser;
     }

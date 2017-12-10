@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {UserServiceImpl.class, UserConfig.class})
@@ -54,14 +55,15 @@ public class UserServiceTest extends TestPreConfig {
         }
     }
 
-    @Test(expected = Exception.class)
-    public void activeUserExceptionTest() throws Exception{
-        userService.getActiveUser();
+    @Test
+    public void activeUserTest() {
+        User user = userService.getActiveUser();
+        assertNotNull(user);
     }
 
     @Test
     public void setActiveUserTest() {
-        User user = userService.setActiveUser(userConfig.getActiveUserEmail());
+        User user = userService.setActiveUser("");
         assertEquals(user.getPassword(), userConfig.getActivePassword());
     }
 }

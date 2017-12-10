@@ -14,11 +14,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
 
+import static org.junit.Assert.assertTrue;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {NotebookRepo.class, UserRepo.class})
-public class NotebookServiceTest extends TestPreConfig {
+public class NotebookRepoTest extends TestPreConfig {
 
-    private Logger logger = LoggerFactory.getLogger(UserServiceTest.class);
+    private Logger logger = LoggerFactory.getLogger(NotebookRepoTest.class);
 
     @Autowired
     private NotebookRepo notebookRepo;
@@ -30,12 +32,15 @@ public class NotebookServiceTest extends TestPreConfig {
     public void notebookLifeCycleTest() {
         User user = userRepo.getOne(1);
 
-        Notebook notebook = new Notebook(user, new Date());
+        Notebook notebook = new Notebook(user, "Default", new Date());
         notebook = notebookRepo.save(notebook);
         logger.info("Notebook " + notebook.getId() + " was saved.");
 
         notebook.setUser(userRepo.getOne(2));
         notebook = notebookRepo.save(notebook);
         logger.info("Notebook was assigned to a new user: " + notebook.getUser().getName());
+
+        notebookRepo.delete(notebook);
+        assertTrue(!notebookRepo.findById(notebook.getId()).isPresent());
     }
 }

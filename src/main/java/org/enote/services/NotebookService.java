@@ -10,11 +10,18 @@ public interface NotebookService {
     /**
      * Saves new note
      *
-     * @param notebook current notebook
-     * @param note     new note
-     * @return added note
+     * @param note  new note
+     * @return  added note
      */
-    Note saveNote(Notebook notebook, Note note);
+    Note addNote(Note note) throws Exception;
+
+    /**
+     * Deletes note
+     *
+     * @param note  existing note
+     * @return  deleted note
+     */
+    Note deleteNote(Note note) throws Exception;
 
     /**
      * Gets all user's notebooks
@@ -22,6 +29,13 @@ public interface NotebookService {
      * @return list of notebooks
      */
     List<Notebook> getAllUserNotebooks();
+
+    /**
+     * Sets active notebook
+     *
+     * @param title notebook title
+     */
+    void setActiveNotebook(String title) throws Exception;
 
     /**
      * Gets active notebook
@@ -32,15 +46,7 @@ public interface NotebookService {
     Notebook getActiveNotebook() throws Exception;
 
     /**
-     * Gets user default notebook
-     *
-     * @return default notebook
+     * Deletes active notebook
      */
-
-    Notebook getDefaultNotebook() throws Exception;
-
-    /**
-     * Deletes default notebook
-     */
-    void deleteDefaultNotebook();
+    void deleteActiveNotebook();
 }

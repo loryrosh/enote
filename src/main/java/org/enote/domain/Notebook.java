@@ -20,6 +20,10 @@ import java.util.Optional;
 @Table(name = "notebook")
 public class Notebook extends BaseEntity {
 
+    @Basic
+    @Column(name = "title")
+    private String title;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -31,15 +35,16 @@ public class Notebook extends BaseEntity {
     @OneToMany(mappedBy = "notebook", cascade = CascadeType.ALL)
     private List<Note> notes = new ArrayList<>();
 
-    public Notebook(User user, Date date) {
+    public Notebook(User user, String title, Date date) {
         this.user = user;
+        this.title = title;
         this.date = date;
     }
 
     /**
-     * Sets new note
+     * Adds new note
      */
-    public void setNote(Note note) {
+    public void addNote(Note note) {
         notes.add(note);
     }
 }

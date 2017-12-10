@@ -19,9 +19,13 @@ import java.util.List;
 @Table(name = "note")
 public class Note extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "notebook_id")
     private Notebook notebook;
+
+    @Basic
+    @Column(name = "title")
+    private String title;
 
     @Basic
     @Column(name = "text")
@@ -45,17 +49,30 @@ public class Note extends BaseEntity {
     )
     private List<Label> labels = new ArrayList<>();
 
+    public Note(String title, String text, Date date) {
+        this.title = title;
+        this.text = text;
+        this.date = date;
+    }
+
+    public Note(Notebook notebook, String title, String text, Date date) {
+        this.title = title;
+        this.notebook = notebook;
+        this.text = text;
+        this.date = date;
+    }
+
     /**
-     * Sets new attachment
+     * Adds new attachment
      */
-    public void setAttachment(Attachment attachment) {
+    public void addAttachment(Attachment attachment) {
         attachments.add(attachment);
     }
 
     /**
-     * Sets new label
+     * Adds new label
      */
-    public void setLabel(Label label) {
+    public void addLabel(Label label) {
         labels.add(label);
     }
 }
