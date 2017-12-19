@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `note_label` (
   `label_id` int,
 
   PRIMARY KEY (`id`),
+  UNIQUE (`note_id`, `label_id`),
   FOREIGN KEY( `note_id` ) REFERENCES note( `id` ),
   FOREIGN KEY( `label_id` ) REFERENCES label( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -114,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `note_attachment` (
   `attachment_id` int,
 
   PRIMARY KEY (`id`),
+  UNIQUE (`note_id`, `attachment_id`),
   FOREIGN KEY( `note_id` ) REFERENCES note( `id` ),
   FOREIGN KEY( `attachment_id` ) REFERENCES attachment( `id` )
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

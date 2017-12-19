@@ -64,6 +64,6 @@ public class UserServiceTest extends TestPreConfig {
     @Test
     public void setActiveUserTest() {
         User user = userService.setActiveUser("");
-        assertEquals(user.getPassword(), userConfig.getActivePassword());
+        assertEquals(userConfig.getActivePassword(), user.getPassword());
     }
 }

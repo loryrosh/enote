@@ -103,6 +103,7 @@ CREATE TABLE note_label (
   label_id int,
 
   PRIMARY KEY (id),
+  UNIQUE (note_id, label_id),
   FOREIGN KEY(note_id) REFERENCES note(id),
   FOREIGN KEY(label_id) REFERENCES label(id)
 );
@@ -121,6 +122,7 @@ CREATE TABLE note_attachment (
   attachment_id int,
 
   PRIMARY KEY (id),
+  UNIQUE (note_id, attachment_id),
   FOREIGN KEY(note_id) REFERENCES note(id),
   FOREIGN KEY(attachment_id) REFERENCES attachment(id)
 );

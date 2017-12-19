@@ -1,9 +1,6 @@
 package org.enote.domain;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.enote.domain.util.BaseEntity;
 
 import javax.persistence.Basic;
@@ -15,6 +12,7 @@ import java.awt.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
 @Table(name = "label")
