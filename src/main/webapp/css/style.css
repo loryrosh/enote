@@ -1,0 +1,26 @@
+﻿@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url('fonts/glyphicons-halflings-regular.eot');
+	src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/glyphicons-halflings-regular.woff') format('woff'),
+        url('fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+        url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+body {
+	margin: 0;
+	padding: 0;
+    font-family: 'Palatino Linotype' !important;
+}
+
+link {
+    color: #007bff;
+}
+
+table {
+    width: 100% !important;
+}
+
+button, link {
+    cursor: pointer;
+}
