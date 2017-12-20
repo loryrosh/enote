@@ -1,18 +1,19 @@
-package org.enote;
+package org.enote.config;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.mvc.WebContentInterceptor;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan(basePackages = {"org.enote.config", "org.enote.services.impl"})
-public class AppConfig {
+public class ProfilesConfig {
 
     public static final String PROFILE_DEV = "dev";
     public static final String PROFILE_PROD = "prod";
-
-    public static final String CURRENT_USER_PROFILE = "John";
 
     /**
      * Gets active Spring profile

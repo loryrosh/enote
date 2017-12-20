@@ -1,8 +1,8 @@
 package org.enote.services.impl;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.enote.AppConfig;
 import org.enote.config.UserConfig;
+import org.enote.config.ProfilesConfig;
 import org.enote.domain.User;
 import org.enote.repos.UserRepo;
 import org.enote.services.UserService;
@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
      * @throws Exception
      */
     private String getEncodedPassword(String password) throws Exception {
-        if (AppConfig.getProfile(environment).equals(AppConfig.PROFILE_DEV)) {
+        if (ProfilesConfig.getProfile(environment).equals(ProfilesConfig.PROFILE_DEV)) {
             try {
                 MessageDigest digest = MessageDigest.getInstance(PASSWORD_SHA256);
                 return ArrayUtils.toString(digest.digest(password.getBytes(StandardCharsets.UTF_8)));
