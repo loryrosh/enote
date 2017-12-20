@@ -83,7 +83,8 @@ CREATE TABLE IF NOT EXISTS `label` (
   `color` int NOT NULL,
   `name` varchar(255) NOT NULL,
 
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 

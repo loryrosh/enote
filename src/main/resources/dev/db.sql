@@ -86,7 +86,8 @@ CREATE TABLE label (
   color int NOT NULL,
   name varchar(255) NOT NULL,
 
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE (name)
 );
 
 

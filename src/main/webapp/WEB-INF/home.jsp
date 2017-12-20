@@ -16,6 +16,6 @@
 
 </head>
 <body>
-    Hello World!
+    ${data} World!
 </body>
 </html>
