@@ -1,6 +1,7 @@
 package org.enote.services;
 
 import org.enote.TestPreConfig;
+import org.enote.aspects.TimeEstimation;
 import org.enote.config.UserConfig;
 import org.enote.domain.User;
 import org.enote.repos.UserRepo;
@@ -21,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {UserServiceImpl.class, UserConfig.class})
+@ContextConfiguration(classes = {UserServiceImpl.class, UserConfig.class, TimeEstimation.class})
 public class UserServiceTest extends TestPreConfig {
 
     private Logger logger = LoggerFactory.getLogger(UserServiceTest.class);
