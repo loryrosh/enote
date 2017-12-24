@@ -1,4 +1,4 @@
-package org.enote.config;
+package org.enote;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,8 +9,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.enote"})
-public class WebConfig {
+@ComponentScan(basePackages={"org.enote.controllers", "org.enote.services.impl"})
+public class Config {
 
     @Bean
     public ViewResolver getViewResolver() {
