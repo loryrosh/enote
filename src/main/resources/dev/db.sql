@@ -87,7 +87,7 @@ CREATE TABLE label (
   name varchar(255) NOT NULL,
 
   PRIMARY KEY (id),
-  UNIQUE(name)
+  UNIQUE (name)
 );
 
 

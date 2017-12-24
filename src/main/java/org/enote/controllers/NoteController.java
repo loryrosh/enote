@@ -9,19 +9,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/notes")
 public class NoteController {
 
     @Autowired
     private NoteService noteService;
 
+    @RequestMapping(value = "/")
+    public String home(Model model) {
+        model.addAttribute("data", "Hello!");
+        return "home";
+    }
+
     @RequestMapping(value = "/search_title", method = RequestMethod.GET)
     public String searchByTitle(@RequestParam String title, Model model) {
-        return "notes";
+        return "home";
     }
 
     @RequestMapping(value = "/search_label", method = RequestMethod.GET)
     public String searchByLabel(@RequestParam String label, Model model) {
-        return "notes";
+        return "home";
     }
 }

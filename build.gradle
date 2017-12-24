@@ -2,6 +2,8 @@ group 'Spring-Learning'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'war'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -19,7 +21,10 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
-    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
+    compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
 
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
     compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
@@ -28,4 +33,10 @@ dependencies {
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.0.2.RELEASE'
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.196'
     testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+}
+
+gretty {
+    httpPort = 8080
+    contextPath = '/'
+    servletContainer = 'tomcat8'
 }

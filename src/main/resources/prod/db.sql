@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `label` (
   `name` varchar(255) NOT NULL,
 
   PRIMARY KEY (`id`),
-  UNIQUE(`name`)
+  UNIQUE (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
