@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import javax.servlet.ServletContext;
@@ -15,12 +16,13 @@ import javax.servlet.ServletException;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages={"org.enote"})
+@ComponentScan(basePackages = {"org.enote"})
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Bean
     public ViewResolver getViewResolver() {
-        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setViewClass(JstlView.class);
         resolver.setPrefix("/WEB-INF/");
         resolver.setSuffix(".jsp");
         return resolver;
