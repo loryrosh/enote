@@ -68,10 +68,12 @@ public class DataSourceConfig {
         ds.setPassword(dbPassword);
 
         // process DB schema & initial test DB data
-        final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-        populator.addScript(dbSQLSchema);
-        populator.addScript(dbSQLTestData);
-        DatabasePopulatorUtils.execute(populator, ds);
+        if (System.getProperty("spring.profiles.active").equals(ProfilesConfig.PROFILE_DEV)) {
+            final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+            populator.addScript(dbSQLSchema);
+            populator.addScript(dbSQLTestData);
+            DatabasePopulatorUtils.execute(populator, ds);
+        }
 
         return ds;
     }

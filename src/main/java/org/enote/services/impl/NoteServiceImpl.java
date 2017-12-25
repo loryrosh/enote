@@ -6,9 +6,11 @@ import org.enote.domain.Notebook;
 import org.enote.repos.NoteRepo;
 import org.enote.services.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class NoteServiceImpl implements NoteService {
 
     @Autowired
